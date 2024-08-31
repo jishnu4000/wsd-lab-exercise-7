@@ -31,13 +31,14 @@ const fetchBooks = async () => {
       .then(response => response.json())
       .then(data => data.results.lists)
 
+    let bookArray = []
     for (let i = 0; i < bookList.length; i++) {
       const books = bookList[i].books
-      allBooks = allBooks.concat(books)
+      bookArray = bookArray.concat(books)
     }
-    allBooks = removeDuplicates(allBooks)
-    totalPages = Math.ceil(allBooks.length / pageSize)
-    return allBooks
+    bookArray = removeDuplicates(bookArray)
+    totalPages = Math.ceil(bookArray.length / pageSize)
+    return bookArray
   } catch (error) {
     console.error("Error fetching data:", error)
   }
@@ -72,6 +73,18 @@ const displayBooks = (pageNum, books) => {
 }
 
 // EVENT LISTENERS
+fetchBtn.addEventListener('click', async () => {
+  messageElement.innerText = "Fetching books..."
+  messageElement.style.display = "block"
+  bookListElement.classList.add('none')
+  allBooks = await fetchBooks()
+  displayBooks(currentPage, allBooks)
+  searchInput.disabled = false
+  sortSelect.disabled = false
+  bookListElement.classList.remove('none')
+  messageElement.style.display = "none"
+})
+
 prevButton.addEventListener('click', () => {
   if (currentPage > 1) {
     currentPage--
@@ -86,18 +99,6 @@ nextButton.addEventListener('click', () => {
   }
 })
 
-fetchBtn.addEventListener('click', async () => {
-  messageElement.innerText = "Fetching books..."
-  messageElement.style.display = "block"
-  bookListElement.classList.add('none')
-  const books = await fetchBooks()
-  displayBooks(currentPage, books)
-  searchInput.disabled = false
-  sortSelect.disabled = false
-  bookListElement.classList.remove('none')
-  messageElement.style.display = "none"
-})
-
 sortSelect.addEventListener('change', async () => {
   const order = sortSelect.value
   messageElement.innerText = "Fetching books..."
@@ -107,6 +108,11 @@ sortSelect.addEventListener('change', async () => {
     allBooks = allBooks.toSorted((a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()))
   } else if (order === 'desc') {
     allBooks = allBooks.toSorted((a, b) => b.title.toLowerCase().localeCompare(a.title.toLowerCase()))
+  } else if (order === 'mpop') {
+    allBooks = await fetchBooks()
+  } else if (order === 'lpop') {
+    allBooks = await fetchBooks()
+    allBooks = allBooks.reverse()
   }
   currentPage = 1
   displayBooks(currentPage, allBooks)
