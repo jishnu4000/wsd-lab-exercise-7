@@ -1,4 +1,4 @@
-const baseURL = "https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=7BWqwKVioD6Nv9WIRRvp8TptVOpPHCCP"
+const baseURL = "https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=aBu3sm0oGzNODP42PQVxWxRppY0EoEqA"
 
 let allBooks = []
 let currentPage = 1
