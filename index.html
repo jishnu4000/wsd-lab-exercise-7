@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+  <header>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="navbar-item">
+        <button class="btn" id="fetch-btn">Fetch Books</button>
+        <button id="prev-btn" class="page-btn" disabled>Previous</button>
+        <button id="next-btn" class="page-btn" disabled>Next</button>
+      </div>
+      <div class="navbar-item">
+        <div class="search-bar">
+          <label for="search">Search by Title or Author: </label>
+          <input type="search" id="search" placeholder="Type here to search..." disabled>
+        </div>
+      </div>
+      <div class="navbar-item">
+        <select name="sort" id="sort" disabled>
+          <option value="">Sort by title</option>
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="book-list none" id="book-list"></div>
+    <div id="message"><h2>Click 'Fetch Books' to start.</h2></div>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>
