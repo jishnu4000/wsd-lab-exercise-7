@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #FFF9D0;
+}
+
+.none {
+  display: none;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8em;
+  background-color: #5AB2FF;
+  color: white;
+}
+
+.navbar-item {
+  display: flex;
+  align-items: center;
+}
+
+/* Button */
+button {
+  background-color: #5AB2FF;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  border: 1px solid white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #A0DEFF;
+}
+
+button:disabled {
+  background-color: #f1f5f9;
+  color: #94a3b8;
+  border: 1px solid #e2e8f0; 
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.page-btn {
+  margin-left: 0.5rem;
+}
+
+/* Input Styles */
+input[type="search"] {
+  padding: 0.25rem 1rem;
+  border-radius: 0.25rem;
+  background-color: white;
+  border: 1px solid #008DDA;
+  outline: none;
+}
+
+input[type="search"]::placeholder {
+  color: #94a3b8;
+}
+
+input[type="search"]:disabled {
+  background-color: #f1f5f9;
+  color: #94a3b8;
+  border: 1px solid #e2e8f0;
+  box-shadow: none;
+}
+
+/* Select Dropdown Styles */
+select {
+  padding: 0.25rem 1rem;
+  border-radius: 0.25rem;
+  background-color: #008DDA;
+  color: white;
+  border: none;
+  outline: none;
+}
+
+select:disabled {
+  background-color: #f1f5f9;
+  color: #94a3b8;
+  border: 1px solid #e2e8f0;
+  box-shadow: none;
+}
+
+/* Label Styles */
+label {
+  padding-right: 0.5rem;
+}
+
+/* Message Div */
+#message {
+  text-align: center;
+  color: #3468C0;
+  margin-top: 1rem;
+}
+
+/* Books */
+.book-list {
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: .25rem;
+  margin-top: 1rem;
+}
+
+.book-item {
+  margin: 0.2rem;
+  padding:0.5rem;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.book-item:hover {
+  padding:0.5rem;
+  border-bottom: 2px solid rgb(185, 185, 185);
+  color: black;
+  background-color: #FFE382;
+  transition: ease-in 0.3s;
+}
+
+.book-image > img {
+  width: 150px;
+  height: 100%;
+}
+
+.book-info{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  max-width: 300px;
+}
+
+.book-title{
+  font-weight: bold;
+  font-size: 20px;
+  text-transform: capitalize;
+
+}
+
+.book-author{
+  font-size: 18px;
+  text-align: left;
+  font-style: italic;
+}
+
+
+.book-desc{
+  font-size: 16px;
+  margin-top: 10px;
+  text-align: justify;
+}
